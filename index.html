@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hardik Seju</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/style.scss">
+
+        
+    </head>
+   
+    <body>
+
+        <div class="container">
+                <header>
+                    
+                        
+                    <h1><a href="#Home">Hardik Seju</a></h1>
+                    <nav>
+                        <ul class="nav__links">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Know Me</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Hire Me</a></li>
+                            <li>
+                                <input class="container_toggle" type="checkbox" id="switch" name="mode">
+                                <label for="switch">Toggle</label>
+
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <div class="animation-wrapper">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </header>
+        </div>
+        <main>
+
+
+        </main>
+  
+
+    <script>
+        var checkbox = document.querySelector('input[name=mode]');
+
+        checkbox.addEventListener('change', function() {
+            if(this.checked) {
+                trans()
+                document.documentElement.setAttribute('data-theme', 'dark')
+            } else {
+                trans()
+                document.documentElement.setAttribute('data-theme', 'light')
+            }
+        })
+
+        let trans = () => {
+            document.documentElement.classList.add('transition');
+            window.setTimeout(() => {
+                document.documentElement.classList.remove('transition');
+            }, 1000)
+        }
+    </script>
+    </body>
+
+</html>
