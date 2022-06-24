@@ -102,7 +102,7 @@ html {
 
 header{
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 30px 0% ;
   padding-right: 100px;
@@ -199,9 +199,10 @@ li, a {
 
 .circle {
     position: absolute;
-    width: 01px;
-    height: 50px;
-    margin: 200px 0px 200px 230px;
+    justify-content: space-between;
+    width: 10px;
+    height: 10px;
+    margin: 200px 0px 200px 150px;
     border-radius: 100%;
     background-color: var(--shadowCircle);
     animation: move-the-circle 2s infinite;
@@ -209,10 +210,11 @@ li, a {
     box-shadow: var(--shadow);
   }
   
-  @for $num from 1 through 10 {
+  @for $num from 1 through 12 {
     .circle:nth-child(#{$num}) {
-      left: ($num - 1) * 100px;
-      animation-delay: $num * 0.7s;
+      left: ($num - 1) * 20px;
+      animation-delay: $num * 0.9s;
+    
     }
   }
   
@@ -221,7 +223,7 @@ li, a {
       transform: translate(0, 0px);
     }
     50% {
-      transform: translate(0px, 50px);
+      transform: translate(0px, 100px);
     }
     100% {
       transform: translate(0px, 0px);
