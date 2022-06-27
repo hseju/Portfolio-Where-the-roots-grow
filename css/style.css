@@ -1,26 +1,57 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&family=Roboto:wght@100;300;700&display=swap");
 * {
-  margin: 0px;
-  padding: 0px;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a,
+a:hover,
+a:focus {
+  outline: 0;
+  text-decoration: none;
+  transition: 0.5s linear;
 }
 
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--lightBg);
+}
+
+.container-fluid {
+  padding: 50px 150px;
 }
 
 html {
-  display: flex;
-  flex-direction: column;
   background: var(--lightBg);
-  margin: 0;
-  padding: 0;
   --lightBtn: #000000;
   --lightBg: #fff;
   --lightColor: #232323;
   --shadowCircle: turquoise;
+  --ringColor: rgb(194, 132, 55);
   --shadow: -2px 5px 15px rgba(59, 255, 242, 0.4),0px 0px 10px rgba(59, 255, 242, 0.8);
+  --navShadow: -2px 5px 15px rgba(0, 0, 0, 0.4),0px 0px 10px rgba(0, 0, 0, 0.8);
+  --socialColor: black;
 }
 
 html[data-theme=dark] {
@@ -30,6 +61,8 @@ html[data-theme=dark] {
   --lightColor: #fff;
   --shadowCircle: #FFBD07;
   --shadow: -2px 5px 15px rgba(255, 187, 59, 0.4),0px 0px 10px rgba(255, 187, 59, 0.8);
+  --navShadow: -2px 5px 15px rgba(255, 255, 255, 0.4),0px 0px 10px rgba(255, 255, 255, 0.8);
+  --socialColor: white;
 }
 
 input[type=checkbox] {
@@ -52,6 +85,10 @@ label {
   border-radius: 150px;
   position: relative;
   float: right;
+}
+
+.toggle-btn {
+  padding-left: 30px;
 }
 
 label:hover {
@@ -81,29 +118,35 @@ input:checked + label:after {
   transform: translateX(-100%);
 }
 
-html.transition,
-html.transition *,
-html.transition *:before,
-html.transition *:after {
-  transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 420ms !important;
-  transition-delay: 0 !important;
+nav.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
 }
 
-header {
+#navbar {
+  width: 100%;
+  height: 100px;
+  margin: 0;
+  padding: 10px 150px;
+  position: fixed;
+  top: 0;
+  background-color: var(--lightBg);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0%;
-  padding-right: 100px;
-  margin: 0;
+  z-index: 10;
 }
 
-h1 {
-  margin-right: auto;
-  padding: 0px 150px;
+.hseju {
+  width: 300px;
+  display: flex;
+  align-items: left;
+  float: left;
 }
 
-h1 a {
+.hseju a {
   cursor: pointer;
   font-family: "Poppins", sans-serif;
   font-size: 25px;
@@ -113,9 +156,9 @@ h1 a {
   letter-spacing: 1px;
 }
 
-h1 a:hover {
+.hseju a:hover {
   content: "";
-  letter-spacing: 8px;
+  letter-spacing: 5px;
   color: rgb(194, 132, 55);
 }
 
@@ -129,11 +172,15 @@ li, a {
 
 .nav__links {
   list-style: none;
+  overflow: hidden;
+  float: right;
+  position: relative;
+  padding: 25px 10px;
 }
 
 .nav__links li {
   display: inline-block;
-  padding: 0px 20px;
+  padding-left: 30px;
 }
 
 .nav__links li a {
@@ -183,83 +230,83 @@ li, a {
   justify-content: space-between;
   width: 10px;
   height: 10px;
-  margin: 200px 0px 200px 150px;
+  margin: 0px 0px 200px 150px;
   border-radius: 100%;
   background-color: var(--shadowCircle);
-  -webkit-animation: move-the-circle 2s infinite;
-          animation: move-the-circle 2s infinite;
+  -webkit-animation: move-the-circle 4s infinite;
+          animation: move-the-circle 4s infinite;
   transform-origin: center center;
   box-shadow: var(--shadow);
 }
 
 .circle:nth-child(1) {
-  left: 0px;
+  left: 1px;
   -webkit-animation-delay: 0.9s;
           animation-delay: 0.9s;
 }
 
 .circle:nth-child(2) {
-  left: 20px;
+  left: 1px;
   -webkit-animation-delay: 1.8s;
           animation-delay: 1.8s;
 }
 
 .circle:nth-child(3) {
-  left: 40px;
+  left: 1px;
   -webkit-animation-delay: 2.7s;
           animation-delay: 2.7s;
 }
 
 .circle:nth-child(4) {
-  left: 60px;
+  left: 2px;
   -webkit-animation-delay: 3.6s;
           animation-delay: 3.6s;
 }
 
 .circle:nth-child(5) {
-  left: 80px;
+  left: 3px;
   -webkit-animation-delay: 4.5s;
           animation-delay: 4.5s;
 }
 
 .circle:nth-child(6) {
-  left: 100px;
+  left: 6px;
   -webkit-animation-delay: 5.4s;
           animation-delay: 5.4s;
 }
 
 .circle:nth-child(7) {
-  left: 120px;
+  left: 5px;
   -webkit-animation-delay: 6.3s;
           animation-delay: 6.3s;
 }
 
 .circle:nth-child(8) {
-  left: 140px;
+  left: 2px;
   -webkit-animation-delay: 7.2s;
           animation-delay: 7.2s;
 }
 
 .circle:nth-child(9) {
-  left: 160px;
+  left: 6px;
   -webkit-animation-delay: 8.1s;
           animation-delay: 8.1s;
 }
 
 .circle:nth-child(10) {
-  left: 180px;
+  left: 6px;
   -webkit-animation-delay: 9s;
           animation-delay: 9s;
 }
 
 .circle:nth-child(11) {
-  left: 200px;
+  left: 11px;
   -webkit-animation-delay: 9.9s;
           animation-delay: 9.9s;
 }
 
 .circle:nth-child(12) {
-  left: 220px;
+  left: 6px;
   -webkit-animation-delay: 10.8s;
           animation-delay: 10.8s;
 }
@@ -267,23 +314,409 @@ li, a {
 @-webkit-keyframes move-the-circle {
   0% {
     transform: translate(0, 0px);
+    transform: scale(0.5);
   }
   50% {
-    transform: translate(0px, 100px);
+    transform: translate(0, 50px);
+    transform: scale(1);
   }
   100% {
-    transform: translate(0px, 0px);
+    transform: translate(0, 0px);
+    transform: scale(0.2);
   }
 }
 
 @keyframes move-the-circle {
   0% {
     transform: translate(0, 0px);
+    transform: scale(0.5);
   }
   50% {
-    transform: translate(0px, 100px);
+    transform: translate(0, 50px);
+    transform: scale(1);
   }
   100% {
-    transform: translate(0px, 0px);
+    transform: translate(0, 0px);
+    transform: scale(0.2);
   }
+}
+.me {
+  border: 2px solid var(--lightBtn);
+  box-shadow: 2px 2px 15px #232323;
+  display: flex;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  position: relative;
+  padding: 10px;
+}
+
+.data {
+  display: flex;
+  color: var(--lightColor);
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+}
+
+.data-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.analyst {
+  display: flex;
+  justify-content: space-between;
+  color: var(--lightColor);
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  align-items: right;
+  position: relative;
+  border: #000 2px solid;
+}
+
+@-webkit-keyframes slide-right {
+  from {
+    margin-left: 50%;
+  }
+  to {
+    margin-left: 20%;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    margin-left: 50%;
+  }
+  to {
+    margin-left: 20%;
+  }
+}
+.alert {
+  margin-top: 100px;
+  margin-right: 0px;
+  padding: 0px;
+  position: relative;
+  display: inline-block;
+}
+
+.alert-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar1 {
+  position: relative;
+  display: inline-block;
+  padding-right: 25px;
+}
+
+.bar1:before,
+.bar1:after {
+  content: "";
+  width: 20px;
+  /* color white ("no color") color (each 2px wide); here you can adjust the width */
+  height: 0;
+  border-radius: 5px;
+  background: var(--shadowCircle);
+  /* here you can adjust the spacing */
+  margin-left: 10%;
+  position: absolute;
+  /* needs to be absolute */
+  top: 0;
+  -webkit-animation: bar1up 4s infinite;
+          animation: bar1up 4s infinite;
+}
+
+.bar1:after {
+  top: 100%;
+  -webkit-animation: bar1up 4s infinite;
+          animation: bar1up 4s infinite;
+}
+
+@-webkit-keyframes bar1up {
+  100% {
+    top: -40px;
+    height: 40px;
+  }
+}
+
+@keyframes bar1up {
+  100% {
+    top: -40px;
+    height: 40px;
+  }
+}
+.bar2 {
+  position: relative;
+  display: inline-block;
+  padding-right: 25px;
+}
+
+.bar2:before,
+.bar2:after {
+  content: "";
+  width: 20px;
+  /* color white ("no color") color (each 2px wide); here you can adjust the width */
+  height: 0;
+  border-radius: 5px;
+  background: var(--shadowCircle);
+  margin-left: 10%;
+  position: absolute;
+  /* needs to be absolute */
+  top: 0;
+  -webkit-animation: bar2up 4s infinite;
+          animation: bar2up 4s infinite;
+}
+
+.bar2:after {
+  top: 100%;
+  -webkit-animation: bar2up 4s infinite;
+          animation: bar2up 4s infinite;
+}
+
+@-webkit-keyframes bar2up {
+  100% {
+    top: -80px;
+    height: 80px;
+  }
+}
+
+@keyframes bar2up {
+  100% {
+    top: -80px;
+    height: 80px;
+  }
+}
+.bar3 {
+  position: relative;
+  display: inline-block;
+  padding-right: 25px;
+}
+
+.bar3:before,
+.bar3:after {
+  content: "";
+  width: 20px;
+  /* color white ("no color") color (each 2px wide); here you can adjust the width */
+  height: 0;
+  border-radius: 5px;
+  background: var(--shadowCircle);
+  /* here you can adjust the spacing */
+  margin-left: 10%;
+  position: absolute;
+  /* needs to be absolute */
+  top: 0;
+  -webkit-animation: bar3up 4s infinite;
+          animation: bar3up 4s infinite;
+}
+
+.bar3:after {
+  top: 100%;
+  -webkit-animation: bar3up 4s infinite;
+          animation: bar3up 4s infinite;
+}
+
+@-webkit-keyframes bar3up {
+  100% {
+    top: -60px;
+    height: 60px;
+  }
+}
+
+@keyframes bar3up {
+  100% {
+    top: -60px;
+    height: 60px;
+  }
+}
+.bar4 {
+  position: relative;
+  display: inline-block;
+  padding-right: 25px;
+}
+
+.bar4:before,
+.bar4:after {
+  content: "";
+  width: 20px;
+  /* color white ("no color") color (each 2px wide); here you can adjust the width */
+  height: 0;
+  border-radius: 5px;
+  background: var(--shadowCircle);
+  /* here you can adjust the spacing */
+  margin-left: 10%;
+  position: absolute;
+  /* needs to be absolute */
+  top: 0;
+  -webkit-animation: bar4up 4s infinite;
+          animation: bar4up 4s infinite;
+}
+
+.bar4:after {
+  top: 100%;
+  -webkit-animation: bar4up 4s infinite;
+          animation: bar4up 4s infinite;
+}
+
+@-webkit-keyframes bar4up {
+  100% {
+    top: -110px;
+    height: 110px;
+  }
+}
+
+@keyframes bar4up {
+  100% {
+    top: -110px;
+    height: 110px;
+  }
+}
+.circle1 {
+  position: relative;
+  display: inline-block;
+  padding-right: 25px;
+  width: 10px;
+  /* color white ("no color") color (each 2px wide); here you can adjust the width */
+  height: 23px;
+  border-radius: 100%;
+  background-color: var(--shadowCircle);
+}
+
+/*--------------------Hamburger--------------------------------------------------*/
+.toggle-menu,
+.close-menu {
+  display: none;
+}
+
+.toggle-menu i {
+  font-size: 1.5rem;
+  color: var(--lightColor);
+}
+
+/*---------------------------------------MAIN CONTAINER---------------------------------------------*/
+.main-container {
+  width: 100%;
+  margin-top: 100px;
+  border: #000000 2px solid;
+}
+
+.background {
+  max-width: 100%;
+  justify-content: space-evenly;
+  display: inline-block;
+  color: var(--lightColor);
+  border: #000 2px solid;
+}
+
+.background-margin-left {
+  margin-left: 25px;
+}
+
+.background-margin-right {
+  margin-right: 25px;
+}
+
+.heading3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.para {
+  font-family: "Roboto";
+  font-size: 18px;
+  text-align: justify;
+  font-weight: normal;
+}
+
+/*---------------------------------------FOOTEr---------------------------------------------*/
+.footer {
+  background-color: var(--lightBg);
+  width: 100%;
+  margin-top: 10px;
+}
+
+.footer-col {
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 0px;
+  padding: 20px 0%;
+}
+
+.footer-col h3 {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: var(--lightColor);
+}
+
+.social-links a i {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+  height: auto;
+  background-image: var(--lightBg);
+  transition: all 0.4s ease-out;
+}
+.wrapper__links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}
+
+.social-link--linkedin {
+  color: #2d76b0;
+}
+.social-link--github {
+  color: #000;
+}
+.social-link--instagram {
+  color: #9a2970;
+}
+.social-link .social-svg {
+  width: 4.8rem;
+  height: 4.8rem;
+}
+.social-link .social-svg .social-group__icon {
+  fill: var(--socialColor);
+  transition: all 0.2s;
+}
+.social-link .social-svg .social-group__inner-circle {
+  fill: transparent;
+  transition: all 0.2s;
+}
+.social-link .social-svg .social-group__outline {
+  stroke: var(--socialColor);
+  transform-origin: 50% 50%;
+  transition: all 0.2s;
+}
+.social-link .social-svg:hover .social-group__icon, .social-link .social-svg:active .social-group__icon, .social-link .social-svg:focus .social-group__icon {
+  fill: var(--lightBg);
+  transition: all 0.45s;
+}
+.social-link .social-svg:hover .social-group__inner-circle, .social-link .social-svg:active .social-group__inner-circle, .social-link .social-svg:focus .social-group__inner-circle {
+  fill: currentColor;
+  transition: all 0.45s;
+}
+.social-link .social-svg:hover .social-group__inner-circle--instagram, .social-link .social-svg:active .social-group__inner-circle--instagram, .social-link .social-svg:focus .social-group__inner-circle--instagram {
+  fill: url(#simpleInsta) !important;
+}
+.social-link .social-svg:hover .social-group__outline, .social-link .social-svg:active .social-group__outline, .social-link .social-svg:focus .social-group__outline {
+  stroke: currentColor;
+  transform: scale(1.1);
+  transition: all 0.45s;
+}
+
+/*--------------------cards-------------------------------------------------*/
+.hero-sec {
+  padding: 150px;
 }/*# sourceMappingURL=style.css.map */
